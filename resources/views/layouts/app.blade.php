@@ -19,35 +19,33 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-sans antialiased" x-data="{ darkMode: false }" x-init="if (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    localStorage.setItem('darkMode', JSON.stringify(true));
-}
-darkMode = JSON.parse(localStorage.getItem('darkMode'));
-$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))" x-cloak>
+<div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+  {{-- <x-jet-banner /> --}}
 
-  <x-jet-banner />
+  @livewire('components.sidebar-menu')
 
-  <div x-bind:class="{ 'dark': darkMode === true }" class="min-h-screen bg-gray-100">
+  <div class="flex flex-col flex-1 w-full">
     @livewire('navigation-menu')
 
     <!-- Page Heading -->
-    @if (isset($header))
+    {{-- @if (isset($header))
       <header class="bg-white shadow">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           {{ $header }}
         </div>
       </header>
-    @endif
+    @endif --}}
 
     <!-- Page Content -->
     <main>
       {{ $slot }}
     </main>
   </div>
+</div>
 
-  @stack('modals')
+@stack('modals')
 
-  @livewireScripts
+@livewireScripts
 </body>
 
 </html>

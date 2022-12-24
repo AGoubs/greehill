@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-  <x-jet-validation-errors class="mb-4" />
+
 
   @if (session('status'))
     <div class="mb-4 font-medium text-sm text-green-600">
@@ -28,6 +28,8 @@
             <span class="text-gray-700 dark:text-gray-400">Password</span>
             <x-jet-input id="password" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="password" name="password" required autocomplete="current-password" aria-placeholder="******************" />
           </label>
+
+          <x-jet-validation-errors class="mb-4" />
 
           <div class="block mt-4">
             <label for="remember_me" class="flex items-center">

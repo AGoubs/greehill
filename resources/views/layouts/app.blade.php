@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html :class="{ 'dark': dark }" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="data()">
 
 <head>
   <meta charset="utf-8">
@@ -17,8 +17,8 @@
   <!-- Scripts -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/init-alpine.js') }}"></script>
 </head>
-
 <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
   {{-- <x-jet-banner /> --}}
 

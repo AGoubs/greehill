@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\AddQuestion;
+use App\Http\Livewire\Dashboard;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,7 @@ Route::middleware([
   config('jetstream.auth_session'),
   'verified'
 ])->group(function () {
-  Route::get('/', function () {
-    return view('dashboard');
-  })->name('dashboard');
+  Route::get('/', Dashboard::class)->name('dashboard');
+
+  Route::get('/add-question', AddQuestion::class)->name('question.add');
 });

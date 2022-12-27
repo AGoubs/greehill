@@ -7,7 +7,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>{{ config('app.name', 'Laravel') }}</title>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -20,12 +20,12 @@
   <script src="{{ asset('js/init-alpine.js') }}"></script>
 </head>
 <div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
-  {{-- <x-jet-banner /> --}}
 
   @livewire('components.sidebar-menu')
 
   <div class="flex flex-col flex-1 w-full">
     @livewire('navigation-menu')
+    <x-jet-banner />
 
     <!-- Page Heading -->
     {{-- @if (isset($header))

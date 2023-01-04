@@ -16,10 +16,13 @@
 
   <!-- Scripts -->
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/flagCheckbox.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/flagSidebar.css') }}">
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/init-alpine.js') }}"></script>
+  <script src="{{ asset('js/sidebarFlag.js') }}"></script>
 </head>
-<div class="flex h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
+<div class="flex min-h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
 
   @livewire('components.sidebar-menu')
 

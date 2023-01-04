@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Language;
 use App\Models\Question;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class AddQuestion extends Component
 {
@@ -12,6 +13,7 @@ class AddQuestion extends Component
   public $question;
   public $answer;
   public $language_id = "2";
+  public $question_id;
 
   public function render()
   {
@@ -22,7 +24,7 @@ class AddQuestion extends Component
   public function addQuestion()
   {
     Question::create([
-      'question_id' => 2,
+      'question_id' => Str::random(),
       'language_id' => $this->language_id,
       'question' => $this->question,
       'answer' => $this->answer,

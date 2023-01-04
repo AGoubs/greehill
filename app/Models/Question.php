@@ -20,4 +20,9 @@ class Question extends Model
     'language_id',
     'question_id',
   ];
+
+  public static function getAllQuestions()
+  {
+    return Question::orderBy('question', 'asc')->get();
+  }
 }

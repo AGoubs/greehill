@@ -13,4 +13,9 @@ class Language extends Model
   {
     return Language::orderBy('name', 'asc')->get();
   }
+
+  public static function getArrayLanguages($array)
+  {
+    return Language::whereIn('id', $array)->get();
+  }
 }

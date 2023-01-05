@@ -23,6 +23,6 @@ class Question extends Model
 
   public static function getAllQuestions()
   {
-    return Question::orderBy('question', 'asc')->get();
+    return Question::orderBy('question_id', 'asc')->get();
   }
 }

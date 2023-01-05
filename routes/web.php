@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\AddQuestion;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\EditQuestion;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,5 @@ Route::middleware([
   Route::get('/', Dashboard::class)->name('dashboard');
 
   Route::get('/add-question', AddQuestion::class)->name('question.add');
+  Route::get('/edit-question/{questionId}', EditQuestion::class)->name('question.edit');
 });

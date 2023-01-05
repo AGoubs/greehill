@@ -33,6 +33,7 @@ class EditQuestion extends Component
     $this->object = Question::find($questionId);
     $this->question = $this->object->question;
     $this->answer = $this->object->answer;
+    $this->language_id = $this->object->language_id;
   }
 
   public function addQuestion()
@@ -41,9 +42,18 @@ class EditQuestion extends Component
 
     $this->object->question = $this->question;
     $this->object->answer = $this->answer;
+    $this->object->language_id = $this->language_id;
     $this->object->save();
 
     session()->flash('flash.banner', 'Question edited successfully');
+    redirect()->route('dashboard');
+  }
+
+  public function deleteQuestion()
+  {
+    $this->object->delete();
+
+    session()->flash('flash.banner', 'Question deleted successfully');
     redirect()->route('dashboard');
   }
 }

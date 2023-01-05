@@ -14,6 +14,7 @@ class Dashboard extends Component
 
   public function render()
   {
+    // $this->languages = Language::whereIn('id',[1,2])->get();
     $this->questions = Question::getAllQuestions();
     return view('livewire.dashboard');
   }

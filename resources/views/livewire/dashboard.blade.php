@@ -13,7 +13,7 @@
         </a>
       </div>
       <!-- Cards -->
-      <div class="grid gap-6 mb-8 md:grid-cols-3">
+      <div class="grid gap-6 mb-8 md:grid-cols-3 flex justify-center">
         <!-- Card -->
         @if ($languages != [])
           @foreach ($languages as $language)

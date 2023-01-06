@@ -14,7 +14,6 @@ class AddQuestion extends Component
   public $answer;
   public $language_id = "2";
   public $question_id;
-  public $form_count = 1;
 
   public function render()
   {
@@ -26,19 +25,18 @@ class AddQuestion extends Component
 
   public function addQuestion()
   {
-    Question::create([
-      'question_id' => $this->question_id,
-      'language_id' => $this->language_id,
-      'question' => $this->question,
-      'answer' => $this->answer,
-    ]);
-
+    foreach ($this->languages as $language) {
+      Question::create([
+        'question_id' => $this->question_id,
+        'language_id' => $language->id,
+        'question' => $this->question,
+        'answer' => $this->answer,
+      ]);
+  
+    }
+   
     session()->flash('flash.banner', 'Question added successfully');
     redirect()->route('dashboard');
   }
 
-  public function addForm()
-  {
-    $this->form_count++;
-  }
 }

@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
     DB::table('languages')->insert([
       'name' => "English",
       'english_name' => "English",
-      'abbreviation' => "us",
+      'abbreviation' => "en",
     ]);
     DB::table('languages')->insert([
       'name' => "Magyar",

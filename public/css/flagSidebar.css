@@ -33,5 +33,10 @@ article label {
 }
 
 article input[type=checkbox]:checked ~ div {
-  background-color: #c8c3d1;
+  background-color: #7e3af2;
+  border-radius: .375rem;
+}
+
+article input[type=checkbox]:checked ~ div span {
+  color: #fff !important;
 }

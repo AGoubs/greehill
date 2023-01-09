@@ -1,19 +1,42 @@
   <main class="h-full overflow-y-auto">
-    <div class="container px-6 grid" style="max-width: max-content;">
-      <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        Dashboard
-      </h2>
+
+    <div class="px-6 grid mx-auto" style="width: 100%;">
+      <div class="flex justify-between">
+        <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
+          Dashboard
+        </h2>
+        {{-- <label class="block my-8 text-sm">
+          @for ($i = 1; $i < 4; $i++)
+            <article class="column">
+              <input type="radio" id="nbColumn" name="nbColumn" value="{{ $i }}" wire:model="nbColumn" />
+              <div>
+                <label for="nbColumn" class=" dark:text-gray-200">{{ $i }}</label>
+              </div>
+            </article>
+          @endfor
+        </label> --}}
+        <a class="flex items-center justify-between p-4 my-6 w-64 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="{{ route('question.add') }}">
+          <div class="flex items-center">
+            <span>New question</span>
+          </div>
+          <span>&RightArrow;</span>
+        </a>
+
+      </div>
+
+
+
       <!-- CTA -->
-      <div class="flex justify-end">
+      {{-- <div class="flex justify-end">
         <a class="flex items-center justify-between p-4 mb-8 w-64 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="{{ route('question.add') }}">
           <div class="flex items-center">
             <span>New question</span>
           </div>
           <span>&RightArrow;</span>
         </a>
-      </div>
+      </div> --}}
       <!-- Cards -->
-      <div class="grid gap-6 mb-8 md:grid-cols-3 flex justify-center">
+      <div class="grid gap-6 mb-8 md:grid-cols-{{ $nbColumn }} flex justify-center">
         <!-- Card -->
         @if ($languages != [])
           @foreach ($languages as $language)

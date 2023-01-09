@@ -13,7 +13,6 @@ function data() {
     }
 
     function setThemeToLocalStorage(value) {
-        console.log("dark", value);
         window.localStorage.setItem("dark", value);
     }
 

@@ -1,12 +1,10 @@
+
 article.feature {
   position: relative;
   width: 60px;
   height: 50px;
   margin: 5px;
   float: left;
-  border: 2px solid #c8c3d1;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
 article.feature div {
@@ -16,7 +14,6 @@ article.feature div {
   justify-content: center;
   align-items: center;
   line-height: 25px;
-  transition: .5s ease;
 }
 
 article.feature input[type='radio'] {
@@ -34,5 +31,7 @@ article.feature label {
 }
 
 article.feature input[type=radio]:checked ~ div {
-  background-color: #c8c3d1;
+  background-color: #7e3af2;
+  color: #fff;
+  border-radius: .375rem;
 }

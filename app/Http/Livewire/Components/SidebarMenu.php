@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Components;
 
 use App\Models\Language;
+use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
 class SidebarMenu extends Component
@@ -18,6 +19,9 @@ class SidebarMenu extends Component
 
   public function addSelectedLanguage($id)
   {
+    if (str_contains(url()->previous(), "add")) {
+      redirect()->route('dashboard');
+    }
     if (($key = array_search($id, $this->selectedLanguages)) !== false) {
       unset($this->selectedLanguages[$key]);
       $this->selectedLanguages = array_values($this->selectedLanguages);

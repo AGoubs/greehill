@@ -18,7 +18,11 @@ class AddQuestion extends Component
 
   public function render()
   {
-    $this->question_id = Question::latest()->first()->question_id + 1;
+    if (Question::latest()->first()) {
+      $this->question_id = Question::latest()->first()->question_id + 1;
+    } else {
+      $this->question_id = 1;
+    }
     // dd($this->question_id);
     $this->languages = Language::getAllLanguages();
     return view('livewire.add-question');
@@ -28,14 +32,14 @@ class AddQuestion extends Component
   {
     $authKey = "0622e6ba-11e2-752c-ed3b-950ddb8020f8:fx"; // Replace with your key
     $translator = new Translator($authKey);
-    $result = $translator->translateText('Hello, world!', null, 'fr');
-    // dd($result->text);
+    $selectedLanguage = Language::find($this->language_id);
+
     foreach ($this->languages as $language) {
       Question::create([
         'question_id' => $this->question_id,
         'language_id' => $language->id,
-        'question' => $translator->translateText($this->question, 'en', $language->abbreviation),
-        'answer' => $translator->translateText($this->answer, 'en', $language->abbreviation),
+        'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "us" ? "en-US" : $selectedLanguage->abbreviation, $language->abbreviation == "us" ? "en-US" : $language->abbreviation),
+        'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "us" ? "en-US" : $selectedLanguage->abbreviation, $language->abbreviation == "us" ? "en-US" : $language->abbreviation),
       ]);
     }
 

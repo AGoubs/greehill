@@ -10,6 +10,8 @@ class Dashboard extends Component
 {
   public $questions;
   public $languages;
+  public $nbColumn = 1;
+
   protected $listeners = ['selectedLanguages'];
 
   public function render()
@@ -22,5 +24,14 @@ class Dashboard extends Component
   public function selectedLanguages($array)
   {
     $this->languages = Language::getArrayLanguages($array);
+
+    if (count($array) < 4) {
+      $this->nbColumn = count($array);
+    }
+  }
+
+  public function changeNbColumn($value)
+  {
+    $this->$nbColumn = $value;
   }
 }

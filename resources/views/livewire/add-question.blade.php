@@ -31,6 +31,9 @@
              @endforeach
            </label>
            <div class="container py-3 mx-0 min-w-full flex flex-col items-center">
+          <div  wire:loading>
+           <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+          </div>
              <x-jet-button>
                {{ __('Add question') }}
              </x-jet-button>

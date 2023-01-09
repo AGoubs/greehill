@@ -19,7 +19,7 @@ class SidebarMenu extends Component
 
   public function addSelectedLanguage($id)
   {
-    if (str_contains(url()->previous(), "add")) {
+    if (str_contains(url()->previous(), "question") ) {
       redirect()->route('dashboard');
     }
     if (($key = array_search($id, $this->selectedLanguages)) !== false) {

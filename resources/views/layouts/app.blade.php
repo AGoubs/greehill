@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <link rel="stylesheet" href="{{ asset('css/flagCheckbox.css') }}">
   <link rel="stylesheet" href="{{ asset('css/flagSidebar.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/spinner.css') }}">
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/init-alpine.js') }}"></script>
   <script src="{{ asset('js/sidebarFlag.js') }}"></script>

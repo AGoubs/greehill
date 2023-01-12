@@ -18,6 +18,9 @@ class Dashboard extends Component
   {
     // $this->languages = Language::whereIn('id',[1,2])->get();
     $this->questions = Question::getAllQuestions();
+    if (!$this->languages) {
+      $this->selectedLanguages([1, 2]);
+    }
     return view('livewire.dashboard');
   }
 
@@ -32,6 +35,6 @@ class Dashboard extends Component
 
   public function changeNbColumn($value)
   {
-    $this->$nbColumn = $value;
+    $this->nbColumn = $value;
   }
 }

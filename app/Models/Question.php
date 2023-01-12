@@ -19,10 +19,16 @@ class Question extends Model
     'answer',
     'language_id',
     'question_id',
+    'translated',
   ];
 
   public static function getAllQuestions()
   {
     return Question::orderBy('question_id', 'asc')->get();
+  }
+
+  public static function deleteLanguagesQuestionsById($id)
+  {
+    return Question::where('question_id', $id)->delete();
   }
 }

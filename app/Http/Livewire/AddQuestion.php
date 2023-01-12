@@ -40,6 +40,7 @@ class AddQuestion extends Component
         'language_id' => $language->id,
         'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "us" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation == "us" ? "en-US" : $language->abbreviation),
         'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "us" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation == "us" ? "en-US" : $language->abbreviation),
+        'translated' => ($selectedLanguage->id == $language->id) ? false : true,
       ]);
     }
 

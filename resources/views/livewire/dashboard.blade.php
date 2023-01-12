@@ -21,11 +21,7 @@
           </div>
           <span>&RightArrow;</span>
         </a>
-
       </div>
-
-
-
       <!-- CTA -->
       {{-- <div class="flex justify-end">
         <a class="flex items-center justify-between p-4 mb-8 w-64 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple" href="{{ route('question.add') }}">
@@ -45,18 +41,25 @@
                 <span class="fi fi-{{ $language->abbreviation }}"></span>
               </div>
               <div>
-                <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                <p class="mb-6 text-sm font-medium text-gray-600 dark:text-gray-400">
                   {{ $language->name }}
                 </p>
                 @if ($questions != null)
                   @foreach ($questions as $question)
                     @if ($question->language_id == $language->id)
-                      <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                        {{ $question->question }}
-                      </p>
-                      <p class="text-lg text-gray-700 dark:text-gray-200">
-                        {{ $question->answer }}
-                      </p>
+                      <div @class([
+                          'translated' => $question->translated,
+                          'question',
+                          'mr-5',
+                      ])>
+                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                          {{ $question->question }}
+                        </p>
+                        <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
+                          {{ $question->answer }}
+                        </p>
+                      </div>
+
                       <div class="flex justify-end">
                         <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
 

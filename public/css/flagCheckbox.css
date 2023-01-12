@@ -30,7 +30,7 @@ article.feature label {
 }
 
 article.feature input[type=radio]:checked ~ div {
-  background-color: #7e3af2;
-  color: #fff;
+  background-color: #ffc40f;
+  color: #000;
   border-radius: .375rem;
 }

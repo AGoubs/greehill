@@ -43,6 +43,7 @@ class EditQuestion extends Component
     $this->object->question = $this->question;
     $this->object->answer = $this->answer;
     $this->object->language_id = $this->language_id;
+    $this->object->translated = false;
     $this->object->save();
 
     session()->flash('flash.banner', 'Question edited successfully');
@@ -51,7 +52,8 @@ class EditQuestion extends Component
 
   public function deleteQuestion()
   {
-    $this->object->delete();
+    // $this->object->delete();
+    Question::deleteLanguagesQuestionsById($this->object->question_id);
 
     session()->flash('flash.banner', 'Question deleted successfully');
     redirect()->route('dashboard');

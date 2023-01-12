@@ -19,6 +19,7 @@ class CreateQuestionsTable extends Migration
       $table->foreignId('language_id')->index();
       $table->text('question');
       $table->text('answer');
+      $table->boolean('translated');
       $table->timestamps();
     });
   }

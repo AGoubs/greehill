@@ -45,6 +45,6 @@ class AddQuestion extends Component
     }
 
     session()->flash('flash.banner', 'Question added successfully');
-    redirect()->route('dashboard');
+    redirect()->route('dashboard', $this->question_id);
   }
 }

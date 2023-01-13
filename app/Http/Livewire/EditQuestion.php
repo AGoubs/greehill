@@ -47,7 +47,7 @@ class EditQuestion extends Component
     $this->object->save();
 
     session()->flash('flash.banner', 'Question edited successfully');
-    redirect()->route('dashboard');
+    redirect()->route('dashboard', $this->object->question_id);
   }
 
   public function deleteQuestion()

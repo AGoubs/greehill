@@ -9,6 +9,7 @@ use Livewire\Component;
 class Dashboard extends Component
 {
   public $questions;
+  public $questionId;
   public $languages;
   public $nbColumn = 1;
 
@@ -16,10 +17,16 @@ class Dashboard extends Component
 
   public function render()
   {
-    // $this->languages = Language::whereIn('id',[1,2])->get();
-    $this->questions = Question::getAllQuestions();
-    if (!$this->languages) {
-      $this->selectedLanguages([1, 2]);
+    if ($this->questionId) {
+      $this->nbColumn = 3;
+      $this->languages = Language::getAllLanguages();
+      $this->questions = Question::getLanguagesQuestionsById($this->questionId);
+    }
+    else {
+      if (!$this->languages) {
+        $this->selectedLanguages([1, 2]);
+      }
+      $this->questions = Question::getAllQuestions();
     }
     return view('livewire.dashboard');
   }
@@ -37,4 +44,6 @@ class Dashboard extends Component
   {
     $this->nbColumn = $value;
   }
+
+  public function mount() {}
 }

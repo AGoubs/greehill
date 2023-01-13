@@ -27,6 +27,11 @@ class Question extends Model
     return Question::orderBy('question_id', 'asc')->get();
   }
 
+  public static function getLanguagesQuestionsById($id)
+  {
+    return Question::where('question_id', $id)->get();
+  }
+
   public static function deleteLanguagesQuestionsById($id)
   {
     return Question::where('question_id', $id)->delete();

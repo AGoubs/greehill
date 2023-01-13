@@ -25,7 +25,7 @@ Route::middleware([
   config('jetstream.auth_session'),
   'verified'
 ])->group(function () {
-  Route::get('/', Dashboard::class)->name('dashboard');
+  Route::get('/dashboard/{questionId?}', Dashboard::class)->name('dashboard');
 
   Route::get('/add-question', AddQuestion::class)->name('question.add');
   Route::get('/edit-question/{questionId}', EditQuestion::class)->name('question.edit');

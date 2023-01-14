@@ -42,7 +42,7 @@ class EditQuestion extends Component
 
     $this->object->question = $this->question;
     $this->object->answer = $this->answer;
-    $this->object->language_id = $this->language_id;
+    // $this->object->language_id = $this->language_id;
     $this->object->translated = false;
     $this->object->save();
 

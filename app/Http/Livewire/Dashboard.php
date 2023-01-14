@@ -10,6 +10,7 @@ class Dashboard extends Component
 {
   public $questions;
   public $questionId;
+  public $nbQuestionId;
   public $languages;
   public $nbColumn = 1;
 
@@ -17,14 +18,15 @@ class Dashboard extends Component
 
   public function render()
   {
+
+    $this->nbQuestionId = Question::getNumberQuestionId();
     if ($this->questionId) {
       $this->nbColumn = 3;
-      $this->languages = Language::getAllLanguages();
+      $this->languages = Language::pluck('id')->toArray();
       $this->questions = Question::getLanguagesQuestionsById($this->questionId);
-    }
-    else {
+    } else {
       if (!$this->languages) {
-        $this->selectedLanguages([1, 2]);
+        $this->selectedLanguages([2]);
       }
       $this->questions = Question::getAllQuestions();
     }
@@ -33,7 +35,8 @@ class Dashboard extends Component
 
   public function selectedLanguages($array)
   {
-    $this->languages = Language::getArrayLanguages($array);
+    $this->languages = $array;
+    // $this->languages = Language::getArrayLanguages($array);
 
     if (count($array) < 4) {
       $this->nbColumn = count($array);
@@ -45,5 +48,7 @@ class Dashboard extends Component
     $this->nbColumn = $value;
   }
 
-  public function mount() {}
+  public function mount()
+  {
+  }
 }

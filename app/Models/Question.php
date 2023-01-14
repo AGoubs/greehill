@@ -32,6 +32,11 @@ class Question extends Model
     return Question::where('question_id', $id)->get();
   }
 
+  public static function getNumberQuestionId()
+  {
+    return Question::distinct()->get(['question_id']);
+  }
+
   public static function deleteLanguagesQuestionsById($id)
   {
     return Question::where('question_id', $id)->delete();

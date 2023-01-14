@@ -32,34 +32,28 @@
         </a>
       </div> --}}
       <!-- Cards -->
-      <div class="grid gap-6 mb-8 md:grid-cols-{{ $nbColumn }} flex justify-center">
-        <!-- Card -->
-        @if ($languages != [])
-          @foreach ($languages as $language)
-            <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
-              <div class="p-3 mr-4 text-gray-500 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-500" style="max-height: 45px">
-                <span class="fi fi-{{ $language->abbreviation }}"></span>
-              </div>
-              <div>
-                <p class="mb-6 text-sm font-medium text-gray-600 dark:text-gray-400">
-                  {{ $language->name }}
-                </p>
-                @if ($questions != null)
-                  @foreach ($questions as $question)
-                    @if ($question->language_id == $language->id)
-                      <div @class([
-                          'translated' => $question->translated,
-                          'question',
-                          'mr-5',
-                      ])>
-                        <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                          {{ $question->question }}
-                        </p>
-                        <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
-                          {{ $question->answer }}
-                        </p>
-                      </div>
+      <table class="w-full" style="border-collapse: separate; 
+border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
+        <tbody class="divide-y dark:divide-gray-700 dark:bg-gray-800 ">
+          @foreach ($nbQuestionId as $item)
+            <tr class="text-gray-700 dark:text-gray-400 pb-6 items-top bg-white rounded-lg shadow-xs dark:bg-gray-800">
 
+              @foreach ($questions as $question)
+                @if ($question->question_id == $item->question_id && in_array($question->language_id, $languages))
+                  <td class="px-4 py-3 rounded-lg " style="display:table-cell;vertical-align:top; ">
+                    <div @class([
+                        'translated' => $question->translated,
+                        'question',
+                        'mr-5',
+                        'relative',
+                    ])>
+                      <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                        {{ $question->question }}
+                      </p>
+                      <br>
+                      <p class="text-lg ml-3 text-gray-700 dark:text-gray-200">
+                        {{ $question->answer }}
+                      </p>
                       <div class="flex justify-end">
                         <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
 
@@ -67,16 +61,67 @@
                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                           </svg>
                         </a>
+                        <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('dashboard', $question->question_id) }}">
+
+                          <svg class="w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                          </svg>
+                        </a>
                       </div>
-                      <br>
-                    @endif
-                  @endforeach
+                    </div>
+                  </td>
                 @endif
-              </div>
-            </div>
+              @endforeach
+            </tr>
           @endforeach
-        @endif
-        {{-- <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+
+        </tbody>
+      </table>
+      {{-- <div class="grid gap-6 mb-8 md:grid-cols-{{ $nbColumn }} flex justify-center">
+          @if ($languages != [])
+            @foreach ($languages as $language)
+              <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+                <div class="p-3 mr-4 text-gray-500 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-500" style="max-height: 45px">
+                  <span class="fi fi-{{ $language->abbreviation }}"></span>
+                </div>
+                <div>
+                  <p class="mb-6 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    {{ $language->name }}
+                  </p>
+                  @if ($questions != null)
+                    @foreach ($questions as $question)
+                      @if ($question->language_id == $language->id)
+                        <div @class([
+                            'translated' => $question->translated,
+                            'question',
+                            'mr-5',
+                        ])>
+                          <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                            {{ $question->question }}
+                          </p>
+                          <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
+                            {{ $question->answer }}
+                          </p>
+                        </div>
+
+                        <div class="flex justify-end">
+                          <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
+
+                            <svg class="w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+                            </svg>
+                          </a>
+                        </div>
+                        <br>
+                      @endif
+                    @endforeach
+                  @endif
+                </div>
+              </div>
+            @endforeach
+          @endif --}}
+
+      {{-- <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
           <div class="p-3 mr-4 text-gray-500 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-500" style="max-height: 45px">
             <span class="fi fi-us"></span>
           </div>
@@ -113,7 +158,7 @@
           </div>
         </div> --}}
 
-      </div>
+    </div>
 
 
     </div>

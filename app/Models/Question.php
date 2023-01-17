@@ -37,8 +37,18 @@ class Question extends Model
     return Question::distinct()->get(['question_id']);
   }
 
+  public static function getDifferentEnglishQuestion($questionsId)
+  {
+    return Question::whereIn('question_id', $questionsId)->where('language_id', 2)->get();
+  }
+
   public static function deleteLanguagesQuestionsById($id)
   {
     return Question::where('question_id', $id)->delete();
+  }
+
+  public static function deleteAllQuestionByLanguage($language_id)
+  {
+    return Question::where('language_id', $language_id)->delete();
   }
 }

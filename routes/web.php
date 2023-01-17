@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Livewire\AddLanguage;
 use App\Http\Livewire\AddQuestion;
 use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\DeleteLanguage;
 use App\Http\Livewire\EditQuestion;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +31,7 @@ Route::middleware([
 
   Route::get('/add-question', AddQuestion::class)->name('question.add');
   Route::get('/edit-question/{questionId}', EditQuestion::class)->name('question.edit');
+
+  Route::get('/add-language', AddLanguage::class)->name('language.add');
+  Route::get('/delete-language', DeleteLanguage::class)->name('language.delete');
 });

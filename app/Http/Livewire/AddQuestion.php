@@ -23,7 +23,6 @@ class AddQuestion extends Component
     } else {
       $this->question_id = 1;
     }
-    // dd($this->question_id);
     $this->languages = Language::getAllLanguages();
     return view('livewire.add-question');
   }

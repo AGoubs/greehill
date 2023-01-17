@@ -25,31 +25,37 @@ class DatabaseSeeder extends Seeder
       'name' => "Français",
       'english_name' => "French",
       'abbreviation' => "fr",
+      'flag' => "fr",
     ]);
     DB::table('languages')->insert([
       'name' => "English",
       'english_name' => "English",
-      'abbreviation' => "us",
+      'abbreviation' => "en-US",
+      'flag' => "us",
     ]);
     DB::table('languages')->insert([
       'name' => "Magyar",
       'english_name' => "Hungary",
       'abbreviation' => "hu",
+      'flag' => "hu",
     ]);
     DB::table('languages')->insert([
       'name' => "Deutsch",
       'english_name' => "German",
       'abbreviation' => "de",
+      'flag' => "de",
     ]);
     DB::table('languages')->insert([
       'name' => "Italiano",
       'english_name' => "Italian",
       'abbreviation' => "it",
+      'flag' => "it",
     ]);
     DB::table('languages')->insert([
       'name' => "Español",
       'english_name' => "Spanish",
       'abbreviation' => "es",
+      'flag' => "es",
     ]);
     // DB::table('questions')->insert([
     //   'question_id' => 1,

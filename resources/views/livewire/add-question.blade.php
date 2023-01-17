@@ -25,7 +25,7 @@
                <article class="feature">
                  <input type="radio" id="language{{ $language->id }}" name="language" value="{{ $language->id }}" wire:model.defer="language_id" />
                  <div>
-                   <label for="language{{ $language->id }}" style="margin-top: -5px;"><span class="fi fi-{{ $language->abbreviation }}" style="width:50px;height: 30px;"></span></label>
+                   <label for="language{{ $language->id }}" style="margin-top: -5px;"><span class="fi fi-{{ $language->flag }}" style="width:50px;height: 30px;"></span></label>
                  </div>
                </article>
              @endforeach

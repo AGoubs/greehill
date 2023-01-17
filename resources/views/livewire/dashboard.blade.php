@@ -32,7 +32,7 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                       ])>
 
                         <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                          <span class="fi fi-{{ $question->abbreviation }}"></span> {{ $question->question }}
+                          <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                         </p>
                         <br>
                         <p class="text-lg ml-3 text-gray-700 dark:text-gray-200">
@@ -77,7 +77,7 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                             'mr-5',
                         ])>
                           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                            <span class="fi fi-{{ $question->abbreviation }}"></span> {{ $question->question }}
+                            <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                           </p>
                           <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
                             {{ $question->answer }}

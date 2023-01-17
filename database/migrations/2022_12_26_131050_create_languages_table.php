@@ -18,6 +18,7 @@ class CreateLanguagesTable extends Migration
       $table->string('name');
       $table->string('english_name');
       $table->string('abbreviation');
+      $table->string('flag');
       $table->timestamps();
     });
   }

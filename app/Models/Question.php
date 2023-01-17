@@ -24,12 +24,12 @@ class Question extends Model
 
   public static function getAllQuestions()
   {
-    return Question::orderBy('question_id', 'asc')->join('languages', 'questions.language_id', '=', 'languages.id')->select('questions.id', 'questions.question_id', 'questions.language_id', 'questions.question', 'questions.answer', 'questions.translated', 'languages.abbreviation')->get();
+    return Question::orderBy('question_id', 'asc')->join('languages', 'questions.language_id', '=', 'languages.id')->select('questions.id', 'questions.question_id', 'questions.language_id', 'questions.question', 'questions.answer', 'questions.translated', 'languages.abbreviation', 'languages.flag')->get();
   }
 
   public static function getLanguagesQuestionsById($id)
   {
-    return Question::where('question_id', $id)->join('languages', 'questions.language_id', '=', 'languages.id')->select('questions.id', 'questions.question_id', 'questions.language_id', 'questions.question', 'questions.answer', 'questions.translated', 'languages.abbreviation')->get();
+    return Question::where('question_id', $id)->join('languages', 'questions.language_id', '=', 'languages.id')->select('questions.id', 'questions.question_id', 'questions.language_id', 'questions.question', 'questions.answer', 'questions.translated', 'languages.abbreviation', 'languages.flag')->get();
   }
 
   public static function getNumberQuestionId()

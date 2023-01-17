@@ -22,7 +22,7 @@
           <article class="sidebar_feature">
             <input type="checkbox" id="sidebar_language_{{ $language->id }}" name="sidebar_language" value="{{ $language->id }}" wire:click="addSelectedLanguage({{ $language->id }})" />
             <div>
-              <label class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-gray-800 dark:text-gray-200" for="sidebar_language_{{ $language->id }}" style="margin-top: -5px;"><span class="fi fi-{{ $language->abbreviation }}" style="width:50px;height: 30px;margin-right:10px; border-radius:2px"></span><span>{{ $language->name }}</span></label>
+              <label class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 text-gray-800 dark:text-gray-200" for="sidebar_language_{{ $language->id }}" style="margin-top: -5px;"><span class="fi fi-{{ $language->flag }}" style="width:50px;height: 30px;margin-right:10px; border-radius:2px"></span><span>{{ $language->name }}</span></label>
             </div>
           </article>
         </li>

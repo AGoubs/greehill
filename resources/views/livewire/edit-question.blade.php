@@ -19,10 +19,10 @@
         </label>
         <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Answer</span>
-          <x-jet-textarea placeholder="Enter the answer" wire:model.defer="answer" />
+          <x-jet-textarea placeholder="Enter the answer" wire:model.defer="answer" required />
         </label>
 
-        <label class="block mt-4 text-sm">
+        {{-- <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Language</span>
           <br>
           @foreach ($languages as $language)
@@ -32,7 +32,7 @@
                 <label for="language{{ $language->id }}" style="margin-top: -5px;"><span class="fi fi-{{ $language->abbreviation }}" style="width:50px;height: 30px;"></span></label>
               </div>
             </article>
-          @endforeach
+          @endforeach --}}
         </label>
         <div class="container py-3 mx-0 min-w-full flex flex-col items-center">
           <x-jet-button>

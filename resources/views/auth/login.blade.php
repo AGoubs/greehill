@@ -50,12 +50,12 @@
             </a>
           @endif
 
-          {{-- <p class="mt-4">
+          <p class="mt-4">
           <p class="mt-1">
-            <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="./create-account.html">
+            <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="{{ route('register') }}">
               Create account
             </a>
-          </p> --}}
+          </p>
         </form>
       </div>
     </div>

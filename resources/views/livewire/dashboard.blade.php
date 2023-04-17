@@ -15,11 +15,11 @@
       <!-- Cards -->
       @if (!$questionId)
 
-        <table class="w-full" style="border-collapse: separate; 
+        <table class="w-full answer_text" style="border-collapse: separate; 
 border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
           <tbody class="divide-y dark:divide-gray-700 dark:bg-gray-800 ">
             @foreach ($nbQuestionId as $item)
-              <tr class="text-gray-700 dark:text-gray-400 pb-6 items-top bg-white rounded-lg shadow-xs dark:bg-gray-800">
+              <tr class="text-gray-700 dark:text-gray-200 pb-6 items-top bg-white rounded-lg shadow-xs dark:bg-gray-800">
 
                 @foreach ($questions as $question)
                   @if ($question->question_id == $item->question_id && in_array($question->language_id, $languages))
@@ -35,8 +35,8 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                           <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                         </p>
                         <br>
-                        <p class="text-lg ml-3 text-gray-700 dark:text-gray-200">
-                          {{ $question->answer }}
+                        <p class="text-lg ml-3 text-gray-700 dark:text-gray-100 ">
+                          {!! $question->answer !!}
                         </p>
                         <div class="flex justify-end">
                           <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
@@ -63,10 +63,10 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
           </tbody>
         </table>
       @else
-        <div class="grid gap-6 mb-8 md:grid-cols-{{ $nbColumn }} flex justify-center">
+        <div class="grid gap-6 mb-8 md:grid-cols-{{ $nbColumn }} flex justify-center answer_text">
           @if ($languages != [])
             @foreach ($languages as $language)
-              <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+              <div class="flex items-top p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 dark:text-gray-200">
                 <div>
                   @if ($questions != null)
                     @foreach ($questions as $question)
@@ -79,8 +79,9 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                           <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
                             <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                           </p>
-                          <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
-                            {{ $question->answer }}
+
+                          <p class="text-lg ml-6 text-gray-700">
+                            {!! $question->answer !!}
                           </p>
                         </div>
 

@@ -8,11 +8,12 @@
          <form wire:submit.prevent="addQuestion" action="#" method="POST">
            <label class="block text-sm mt-2">
              <span class="text-gray-700 dark:text-gray-400">Question</span>
-             <x-jet-input type="text" placeholder="Question" wire:model.defer="question" required autofocus />
+             <x-jet-input id="question" type="text" placeholder="Question" wire:model.defer="question" required autofocus />
            </label>
            <label class="block mt-4 text-sm">
              <span class="text-gray-700 dark:text-gray-400">Answer</span>
-             <x-jet-textarea placeholder="Enter the answer" wire:model.defer="answer" required />
+             <textarea name="answer" id="answer" wire:model.defer="answer"></textarea>
+             {{-- <x-jet-textarea placeholder="Enter the answer" wire:model.defer="answer" required /> --}}
            </label>
 
            <label class="block mt-4 text-sm">
@@ -36,7 +37,7 @@
                  <div></div>
                </div>
              </div>
-             <x-jet-button>
+             <x-jet-button onclick="getContent()">
                {{ __('Add question') }}
              </x-jet-button>
            </div>
@@ -44,3 +45,31 @@
        </div>
      </div>
    </main>
+
+   <script>
+     tinymce.init({
+       selector: 'textarea#answer',
+       plugins: 'autolink codesample link lists searchreplace visualblocks wordcount checklist casechange export formatpainter linkchecker a11ychecker permanentpen powerpaste advtable advcode  tableofcontents footnotes typography inlinecss',
+       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+       tinycomments_mode: 'embedded',
+       tinycomments_author: 'Author name',
+       mergetags_list: [{
+           value: 'First.Name',
+           title: 'First Name'
+         },
+         {
+           value: 'Email',
+           title: 'Email'
+         },
+       ]
+     });
+
+     function getContent() {
+
+       if (document.getElementById("question").value) {
+
+         var myContent = tinymce.get("answer").getContent();
+         @this.answer = myContent;
+       }
+     }
+   </script>

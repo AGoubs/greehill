@@ -23,6 +23,7 @@
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/init-alpine.js') }}"></script>
   <script src="{{ asset('js/sidebarFlag.js') }}"></script>
+  <script src="https://cdn.tiny.cloud/1/xtor3hkzibq6plkm0u6kzan1m1f3iauiqqlebkyqsyan06g7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <div class="flex min-h-screen bg-gray-50 dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen }">
 

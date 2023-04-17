@@ -29,16 +29,18 @@ class AddQuestion extends Component
 
   public function addQuestion()
   {
-    $authKey = "0622e6ba-11e2-752c-ed3b-950ddb8020f8:fx"; // Replace with your key
+    $authKey = "0622e6ba-11e2-752c-ed3b-950ddb8020f8:fx";
     $translator = new Translator($authKey);
     $selectedLanguage = Language::find($this->language_id);
+
+    // dd($this->answer);
 
     foreach ($this->languages as $language) {
       Question::create([
         'question_id' => $this->question_id,
         'language_id' => $language->id,
-        'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation),
-        'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation),
+        'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['split_sentences' => 'off', 'preserve_formatting' => 'true']),
+        'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['split_sentences' => 'off', 'preserve_formatting' => 'true']),
         'translated' => ($selectedLanguage->id == $language->id) ? false : true,
       ]);
     }

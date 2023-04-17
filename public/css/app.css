@@ -78,8 +78,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: inherit;
-  font-weight: inherit;
+  /* font-size: inherit;
+  font-weight: inherit; */
+}
+
+.answer_text table,
+.answer_text table tr,
+.answer_text table td {
+  border-width: 1px !important;
 }
 
 /*
@@ -302,6 +308,12 @@ menu {
   padding: 0;
 }
 
+.answer_text ol,
+.answer_text ul,
+.answer_text menu {
+  list-style: auto !important;
+  padding-left: 30px;
+}
 /*
 Prevent resizing textareas horizontally by default.
 */

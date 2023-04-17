@@ -35,7 +35,7 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                           <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                         </p>
                         <br>
-                        <p class="text-lg ml-3 text-gray-700 dark:text-gray-100 ">
+                        <p class="text-lg ml-3 text-gray-700 dark:text-gray-200">
                           {!! $question->answer !!}
                         </p>
                         <div class="flex justify-end">
@@ -80,7 +80,7 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                             <span class="fi fi-{{ $question->flag }}"></span> {{ $question->question }}
                           </p>
 
-                          <p class="text-lg ml-6 text-gray-700">
+                          <p class="text-lg ml-6 text-gray-700 dark:text-gray-200">
                             {!! $question->answer !!}
                           </p>
                         </div>

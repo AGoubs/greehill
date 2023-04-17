@@ -39,8 +39,8 @@ class AddQuestion extends Component
       Question::create([
         'question_id' => $this->question_id,
         'language_id' => $language->id,
-        'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['split_sentences' => 'off', 'preserve_formatting' => 'true']),
-        'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['split_sentences' => 'off', 'preserve_formatting' => 'true']),
+        'question' => $translator->translateText($this->question, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['preserve_formatting' => 'true']),
+        'answer' => $translator->translateText($this->answer, $selectedLanguage->abbreviation == "en-US" ? "en" : $selectedLanguage->abbreviation, $language->abbreviation, ['preserve_formatting' => 'true']),
         'translated' => ($selectedLanguage->id == $language->id) ? false : true,
       ]);
     }

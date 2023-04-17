@@ -39,12 +39,12 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                           {!! $question->answer !!}
                         </p>
                         <div class="flex justify-end">
-                          <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
+                          <a class="flex items-center justify-between mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}" style="color:white">
                             <svg class="w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
                             </svg>
                           </a>
-                          <a class="flex items-center justify-between ml-3 mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('dashboard', $question->question_id) }}">
+                          <a class="flex items-center justify-between ml-3 mb-2 px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit" href="{{ route('dashboard', $question->question_id) }}" style="color:white">
 
                             <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                               <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
@@ -86,7 +86,7 @@ border-spacing: 2em 1em;table-layout: fixed; width: 100%;">
                         </div>
 
                         <div class="flex justify-end">
-                          <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}">
+                          <a class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-full active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" aria-label="Edit"href="{{ route('question.edit', $question->id) }}" style="color:white">
 
                             <svg class="w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>

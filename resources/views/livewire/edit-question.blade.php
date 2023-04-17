@@ -37,7 +37,7 @@
         </label>
         <div class="container py-3 mx-0 min-w-full flex flex-col items-center">
           <x-jet-button onclick="getContent()">
-            {{ __('Edit question') }}
+            {{ __('Save') }}
           </x-jet-button>
         </div>
       </form>

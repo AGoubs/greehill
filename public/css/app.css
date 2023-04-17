@@ -97,6 +97,12 @@ a {
   text-decoration: inherit;
 }
 
+.answer_text a {
+  color: #058B62 !important;
+  text-decoration: inherit;
+}
+
+
 /*
 Add the correct font weight in Edge and Safari.
 */

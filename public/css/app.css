@@ -311,7 +311,7 @@ menu {
 .answer_text ol,
 .answer_text ul,
 .answer_text menu {
-  list-style: auto !important;
+  list-style: initial !important;
   padding-left: 30px;
 }
 /*
